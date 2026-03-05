@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@import "aos/dist/aos.css";
+
+/* Scroll suave + evita que el navbar tape las secciones */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.bg-blob {
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  width: 600px;
+  height: 600px;
+  border-radius: 9999px;
+
+  background: radial-gradient(
+    circle,
+    rgba(57,72,171,0.5),
+    rgba(0,89,253,0.7),
+    transparent 80%
+  );
+
+  filter: blur(140px);
+  pointer-events: none;
+
+  z-index: 0;
+
+  opacity: 0.8;
+}
+/* Tus secciones glass */
+.section-glass {
+  position: relative;
+  z-index: 10;
+}
+
+.section-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}

@@ -1,0 +1,37 @@
+<div
+  (click)="openProject()"
+  class="group cursor-pointer overflow-hidden rounded-2xl bg-white shadow-md
+         transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+>
+  <!-- Imagen -->
+  <div class="relative h-48 overflow-hidden">
+    <img
+      [src]="image"
+      [alt]="title"
+      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0 bg-black/50 opacity-0
+             transition-opacity duration-300 group-hover:opacity-100
+             flex items-center justify-center"
+    >
+      <span class="text-white font-semibold text-sm tracking-wide">
+        Ver proyecto →
+      </span>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <div class="p-5">
+    <h3 class="text-xl font-bold text-gray-800 mb-2">
+      {{ title }}
+    </h3>
+
+<h3 class="text-gray-600 text-base leading-relaxed">
+  {{ description }}
+</h3>
+
+  </div>
+</div>

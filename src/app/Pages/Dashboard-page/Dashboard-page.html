@@ -1,0 +1,44 @@
+<main class="relative" (mousemove)="onMouseMove($event)">
+  <!-- NAVIGATION -->
+  <app-nav-bar></app-nav-bar>
+
+  <!-- BACKGROUND -->
+  <div class="pointer-events-none fixed inset-0 z-0">
+    <div class="bg-blob" [style.transform]="blobTransform"></div>
+  </div>
+
+  <!-- HERO -->
+  <section data-aos="fade-up" class="section-glass min-h-screen flex items-center">
+    <div class="max-w-[85rem] mx-auto px-4 w-full">
+      <app-hero></app-hero>
+    </div>
+  </section>
+
+  <!-- SOBRE MI -->
+  <section id="sobre-mi" data-aos="slide-right" data-aos-delay="200" class="section-glass py-24">
+    <div class="max-w-[85rem] mx-auto px-6">
+      <app-sobre-mi></app-sobre-mi>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades" data-aos="zoom-in" data-aos-delay="300" class="section-glass py-24">
+    <div class="max-w-[85rem] mx-auto px-1">
+      <app-habilidades></app-habilidades>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section-glass py-24">
+    <div class="max-w-[85rem] mx-auto px-6">
+      <app-proyectos></app-proyectos>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" data-aos="flip-up" data-aos-delay="400" class="section-glass py-24">
+    <div class="max-w-[85rem] mx-auto px-6">
+      <app-contacto></app-contacto>
+    </div>
+  </section>
+</main>

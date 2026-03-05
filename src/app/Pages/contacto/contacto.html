@@ -1,0 +1,116 @@
+<form (ngSubmit)="submit()" class="space-y-6">
+  <!-- Honeypot anti-spam (Formspree) -->
+  <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" />
+
+  <!-- Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- Nombre -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
+      <input
+        class="w-full rounded-xl border border-gray-200 bg-white/70 px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+        name="name"
+        [(ngModel)]="form.name"
+        placeholder="Tu nombre"
+        required
+        autocomplete="name"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+      <input
+        class="w-full rounded-xl border border-gray-200 bg-white/70 px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+        type="email"
+        name="email"
+        [(ngModel)]="form.email"
+        placeholder="tu@email.com"
+        required
+        autocomplete="email"
+      />
+    </div>
+  </div>
+
+  <!-- Presupuesto -->
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Presupuesto estimado</label>
+    <select
+      class="w-full rounded-xl border border-gray-200 bg-white/70 px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+      name="presupuesto"
+      [(ngModel)]="form.presupuesto"
+      required
+    >
+      <option value="" disabled>Seleccionar...</option>
+      <option value="300k">$300.000</option>
+      <option value="400-600k">$400.000 - $600.000</option>
+      <option value="700-850k">$700.000 - $850.000</option>
+      <option value="1m+">Más de $1.000.000</option>
+    </select>
+
+    <p class="mt-2 text-xs text-gray-500">
+      Si no tenés un presupuesto definido, elegí la opción más cercana.
+    </p>
+  </div>
+
+  <!-- Mensaje -->
+  <div>
+    <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
+    <textarea
+      class="w-full rounded-xl border border-gray-200 bg-white/70 px-4 py-3 text-gray-900 outline-none transition focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100"
+      name="message"
+      [(ngModel)]="form.message"
+      rows="6"
+      placeholder="Contame qué necesitás (tipo de proyecto, objetivo, plazo) y cualquier detalle importante."
+      required
+    ></textarea>
+  </div>
+
+  <!-- Botón -->
+  <button
+    type="submit"
+    class="w-full rounded-xl bg-indigo-600 text-white py-3 font-medium shadow-sm transition hover:bg-indigo-700 active:scale-[0.99] disabled:opacity-60 disabled:hover:bg-indigo-600"
+    [disabled]="loading"
+  >
+    <span class="inline-flex items-center justify-center gap-2">
+      <span
+        *ngIf="loading"
+        class="h-4 w-4 animate-spin rounded-full border-2 border-white/40 border-t-white"
+      ></span>
+      {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
+    </span>
+  </button>
+
+  <!-- Feedback -->
+  <div
+    *ngIf="success"
+    class="rounded-xl border border-green-200 bg-green-50 px-4 py-3 text-green-800"
+  >
+    ✅ Mensaje enviado. ¡Gracias! Te respondo a la brevedad.
+  </div>
+
+  <div *ngIf="error" class="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-red-800">
+    ❌ Hubo un error al enviar. Probá de nuevo o escribime por LinkedIn/Email.
+  </div>
+
+  <!-- Links rápidos (opcional, queda pro) -->
+  <div class="flex flex-wrap items-center justify-center gap-3 pt-2 text-sm text-gray-600">
+    <a class="hover:text-indigo-600 transition" href="mailto:roccolavecchia.rl@gmail.com">Email</a>
+    <span class="text-gray-300">•</span>
+    <a
+      class="hover:text-indigo-600 transition"
+      href="https://www.linkedin.com/in/rocco-lavecchia-58089917a/"
+      target="_blank"
+      rel="noreferrer"
+      >LinkedIn</a
+    >
+    <span class="text-gray-300">•</span>
+    <a
+      class="hover:text-indigo-600 transition"
+      href="https://github.com/lavecchiarocco"
+      target="_blank"
+      rel="noreferrer"
+      >GitHub</a
+    >
+  </div>
+</form>
